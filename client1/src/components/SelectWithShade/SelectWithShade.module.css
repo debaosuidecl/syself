@@ -1,0 +1,51 @@
+.InputWithShade{
+    background: #e7e9fd;
+    position: relative;
+    /* padding: 10px; */
+    display: flex;
+    align-items: flex-end;
+    max-width: 400px;
+    margin: 0 auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 20px;
+    height: 55px;
+    
+}
+
+.InputWithShade p{
+    position: absolute;
+    text-align: left;
+    padding-left: 7px;
+    pointer-events: none;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    margin: 0;
+    transition: .3s;
+    color: #555;
+}
+
+.InputWithShade svg{
+    position: absolute;
+    cursor: pointer;
+    /* color:blue; */
+    right: 10px;
+    top: 50%;
+}
+
+.InputWithShade select{
+    width: 100%;
+    transition: .5s;
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+    padding-left: 10px;
+    max-width: 400px;
+    padding: 6px;
+    color: #444;
+    padding-bottom: 2px;
+    height: 30px;
+    border: none;
+    background: none;
+}

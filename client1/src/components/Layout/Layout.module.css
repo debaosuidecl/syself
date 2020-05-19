@@ -1,0 +1,66 @@
+.Layout {
+  height: 80px;
+  width: 100%;
+  opacity: 1;
+  background: #141b4d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Logo {
+  color: white;
+  margin-left: 20px;
+  flex: 1;
+  font-size: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logo p {
+  font-weight: 1200;
+}
+.LoaderFade {
+  opacity: 0;
+  transition: 0.5s;
+  pointer-events: none;
+  position: fixed;
+  z-index: 1200;
+}
+.ErrorCont {
+  /* background: black; */
+  color: white;
+  position: fixed;
+  /* filter: alpha(0.5); */
+  /* opacity: 0.8; */
+  width: 330px;
+  z-index: 3000;
+  right: 0;
+  top: 80px;
+  /* height: 700px; */
+}
+
+.Routes {
+  display: flex;
+  /* background: #000; */
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.Routes li {
+  color: white;
+  list-style: none;
+
+  padding: 10px;
+  text-decoration: none;
+}
+.Routes a {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.4s;
+}
+.Routes a:hover {
+  color: #ec6b67;
+  transition: 0.4s;
+}

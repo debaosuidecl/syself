@@ -1,0 +1,191 @@
+.RegistrationCont {
+  /* display: flex; */
+  align-items: center;
+  /* width: 80%; */
+
+  /* padding-top: 40px;  */
+
+  /* margin: 90px auto 0px; */
+  /* width: 100%; */
+  /* background: green; */
+  /* background: green; */
+  padding: 0px;
+  /* height: 90vh */
+}
+.Auth {
+  margin-top: 30px;
+  display: flex;
+  flex: 1;
+}
+.NavIndicator {
+  display: flex;
+  /* background: #000; */
+  padding: 20px;
+  justify-content: center;
+  max-width: 500px;
+  align-items: center;
+  margin: auto;
+}
+.Step1,
+.Step2 {
+  width: 20px;
+  height: 20px;
+  /* position: fixed; */
+  top: 120px;
+  border-radius: 50%;
+  /* background: #141b4d; */
+}
+
+.Step2 {
+  left: 20px;
+  transition: 0.5s;
+}
+.Step1 {
+  transition: 0.5s;
+  left: 50px;
+  margin-right: 10px;
+}
+
+.LeftGraphicCont {
+  flex: 1;
+}
+.LeftGraphicCont img,
+.RightCont img {
+  max-width: 600px;
+}
+.WelcomeCont {
+  text-align: center;
+  color: #141b4d;
+}
+.WelcomeCont h1 {
+  font-weight: 1000;
+}
+.WelcomeCont span {
+  font-weight: 900;
+}
+.ButtonFinal {
+  /* background: #000; */
+  margin: 0 auto;
+  max-width: 500px;
+  animation-name: UpFade3;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  text-align: center;
+}
+
+.ButtonFinal button {
+  width: 90% !important;
+}
+.RightCont {
+  flex: 1;
+  /* background: #000; */
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.UpFade {
+  animation-name: UpFade;
+  animation-duration: 2s;
+}
+.UpFade2 {
+  animation-name: UpFade2;
+  animation-duration: 2s;
+}
+.UpFade3 {
+  animation-name: UpFade3;
+  animation-duration: 2s;
+}
+.DownFade {
+  animation-name: DownFade;
+  animation-duration: 2s;
+}
+
+.DownFade2 {
+  animation-name: DownFade2;
+  animation-duration: 2s;
+}
+.DownFade3 {
+  animation-name: DownFade3;
+  animation-duration: 2s;
+}
+@keyframes UpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes UpFade2 {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes UpFade3 {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes DownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes DownFade2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes DownFade3 {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 500px) {
+  .RegistrationCont {
+    width: 80%;
+    margin: 0 auto;
+
+    /* height: 90vh */
+  }
+}
+@media (min-width: 1100px) {
+  .Auth {
+    margin-top: 90px;
+
+    /* background: green; */
+  }
+  .desktopOnly {
+    display: block;
+  }
+}

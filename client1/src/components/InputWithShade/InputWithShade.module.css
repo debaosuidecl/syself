@@ -1,0 +1,57 @@
+.InputWithShade{
+    background: #e7e9fd;
+    position: relative;
+    /* padding: 10px; */
+    display: flex;
+    align-items: flex-end;
+    max-width: 400px;
+    margin: 0 auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 20px;
+    height: 55px;
+    
+}
+.ErrorMessage{
+    position: absolute;
+    font-size: 13px;
+    /* background: green; */
+    text-align: left;
+    width: 100%;
+    bottom: -18px;
+    color: red;
+}
+.InputWithShade p{
+    position: absolute;
+    text-align: left;
+    padding-left: 7px;
+    pointer-events: none;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    margin: 0;
+    transition: .3s;
+    color: #555;
+}
+
+.InputWithShade svg{
+    position: absolute;
+    cursor: pointer;
+    /* color:blue; */
+    right: 10px;
+    top: 50%;
+}
+
+.InputWithShade input{
+    width: 100%;
+    transition: .5s;
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+    max-width: 400px;
+    padding: 6px;
+    padding-bottom: 2px;
+    height: 30px;
+    border: none;
+    background: none;
+}

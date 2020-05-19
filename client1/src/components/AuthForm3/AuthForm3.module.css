@@ -1,0 +1,78 @@
+.AuthForm{
+    text-align: center;
+    /* background: green; */
+}
+
+.AuthForm h3{
+    font-size: 36px;
+    color: #141b4d;
+    font-weight: 500;
+    padding: 0px;
+    margin: 0px;
+    letter-spacing: -.1rem;
+}
+.ButtonCont, .ButtonSelected{
+    margin-bottom: 16px;
+    margin-top: 10px;
+}
+.ButtonCont button{
+    background: none;
+    color: #141b4d;
+    border: 1px solid #141b4d;
+    transition: .5s;
+}
+
+.ButtonCont button:hover, .ButtonSelected button{
+    border: 1px solid    #ec6b67;
+    background: #ec6b67;
+    color: white;
+    transition: .5s;
+}
+.smallWith{
+    font-size: small;
+    margin: 50px 0px;
+  
+    padding: 0px;
+}
+
+.Form{
+    text-align: left;
+    padding: 20px;
+    box-shadow: 1px 0px 5px #eee;
+    /* min-width: 300px; */
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+.preForm{
+    text-align: center;
+}
+.preForm p{
+    margin: 0px;
+    padding: 0px;
+}
+.preForm img{
+    margin: 0px;
+}
+
+
+i{
+    color: #141b4d;
+
+}
+
+.NameCont{
+    display: flex;
+    margin-top: 40px;
+    /* justify-content: space-between; */
+    /* padding: 10px; */
+    width: 100%;
+}
+.NameCont div{
+    flex: 1;
+    
+}
+.NameCont div:first-child{
+    margin-right: 10px;
+}

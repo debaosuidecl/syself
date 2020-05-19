@@ -1,0 +1,35 @@
+.ErrorMessage{
+    /* padding: 10px; */
+    display: flex;
+    background: #fff;
+    color: rgb(255, 0, 0);
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* filter: alpha(.2); */
+    border-bottom: 2px solid #eee;
+    border-left: 5px solid crimson;
+    box-shadow: 1px 0px 7px #eee;
+    opacity: .9;
+    cursor: pointer;
+    border-radius: 5px;
+    justify-content: space-between;
+    transition:.5s
+    /* border-radius: 4px; */
+}
+.ErrorMessage:hover{
+    opacity: 1;
+    transition:.5s
+}
+.ErrorMessage .Left{
+padding:20px;
+border-right: 1px solid red;
+flex:2
+}
+.ErrorMessage .Right{
+padding:20px;
+/* background: #000; */
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
