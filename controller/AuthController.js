@@ -134,6 +134,7 @@ module.exports = {
   },
   FacebookRedirectSuccess: async (req, res) => {
     console.log("success", req.query);
+
     try {
       const data = await getFacebookUserData(req.query.code);
       console.log(data);
@@ -190,6 +191,83 @@ module.exports = {
 
     // console.log(redirect)
     // res.redirect(redirect)
+  },
+  FacebookMobileAuth: async (req, res) => {
+    try {
+      const { facebookid, first_name, last_name, picture, email } = req.query;
+      const user = await User.findOne({ facebookid }).select("-password");
+      if (user) {
+        const payload = {
+          user: {
+            id: user._id,
+          },
+        };
+
+        jwt.sign(payload, config.get("jwtSecret"), null, (error, token) => {
+          if (error) throw error;
+          res.json({
+            ...user,
+            token,
+          });
+          // console.log("hit here on line 38");
+          // let redirect = `http://localhost:3000/s-catch?signup-method=facebook&ctb-rel=${user.facebookid}&j=${token}&status=${user.regComplete}`;
+          // console.log(redirect);
+          // res.redirect(redirect);
+        });
+      } else {
+        let userData = {
+          email,
+          lastName: last_name,
+          firstName: first_name,
+          avatar: data.picture ? data.picture.data.url : "",
+          facebookid: data.id,
+          method: "facebook",
+          registrationStep: 2,
+        };
+        let savedValue = {};
+        try {
+          savedValue = await User(userData).save();
+          console.log(savedValue, savedValue._id);
+        } catch (error) {
+          console.log(error);
+          return res.status(400).json({
+            errors: [
+              {
+                msg: "Error Creating user",
+              },
+            ],
+          });
+          // let redirect = `http://localhost:3000/register?facebook-auth-status=fail&status=could-not-create-user`;
+          // res.redirect(redirect);
+        }
+        const payload = {
+          user: {
+            id: savedValue._id,
+          },
+        };
+        jwt.sign(payload, config.get("jwtSecret"), null, (error, token) => {
+          if (error) throw error;
+
+          res.json({
+            ...savedValue,
+            token,
+          });
+          // console.log("hit here on line 38");
+          // let redirect = `http://localhost:3000/s-catch?signup-method=facebook&ctb-rel=${data.id}&j=${token}`;
+          // console.log(redirect);
+          // res.redirect(redirect);
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        errors: [
+          {
+            msg: "Server error",
+          },
+        ],
+      });
+    }
   },
   LocalAuthController: async (req, res) => {
     console.log(req.body);
@@ -251,6 +329,7 @@ module.exports = {
       res.status(500).send("Server Error");
     }
   },
+
   SignInControllerLocal: async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

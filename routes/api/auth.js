@@ -19,6 +19,7 @@ const {
   LocalAuthController,
   finalRegController,
   SignInControllerLocal,
+  FacebookMobileAuth,
 } = require("../../controller/AuthController");
 //@route    GET api/auth
 //@desc     test Route
@@ -37,7 +38,7 @@ router.post(
   ],
   SignInControllerLocal
 );
-
+router.get("/facebook-mobile-auth", FacebookMobileAuth);
 router.get(
   "/oauth/google",
   passport.authenticate("googleToken", { scope: ["profile", "email"] })
