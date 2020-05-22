@@ -9,9 +9,11 @@ const passportConf = require("../config/passport-setup");
 const config = require("config");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
-const keys = require("../config/keys");
+// const keys = require("../config/keys");
 const passport = require("passport");
 const request = require("request");
+const facebookClientID = process.env.facebookClientID;
+const facebookSecret = process.env.facebookSecret;
 const passportSetup = require("../config/passport-setup");
 const axios = require("axios");
 const { UserFindController } = require("../controller/AuthController");
@@ -26,8 +28,8 @@ async function getFacebookUserData(code) {
         method: "get",
         params: {
           fields: ["email"].join(","),
-          client_secret: keys.facebook.clientSecret,
-          client_id: keys.facebook.clientID,
+          client_secret: facebookSecret,
+          client_id: facebookClientID,
           code,
           redirect_uri: "http://localhost:2900/api/auth/facebook/redirect",
         },
