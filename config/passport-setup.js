@@ -26,7 +26,7 @@ passport.use(
       clientID: googleClientID,
       clientSecret: googleSecret,
       callbackURL:
-        "https://mysterious-citadel-13326.herokuapp.com//api/auth/google/redirect",
+        "https://mysterious-citadel-13326.herokuapp.com/api/auth/google/redirect",
     },
     async (accessToken, refreshToken, profile, done) => {
       // console.log('accessToken', accessToken)
