@@ -195,7 +195,9 @@ module.exports = {
   FacebookMobileAuth: async (req, res) => {
     try {
       const { facebookid, first_name, last_name, picture, email } = req.query;
-      const user = await User.findOne({ facebookid }).select("-password");
+      const user = await User.findOne({ facebookid })
+        .select("-password")
+        .lean();
       if (user) {
         const payload = {
           user: {
@@ -219,7 +221,7 @@ module.exports = {
           email,
           lastName: last_name,
           firstName: first_name,
-          avatar: data.picture ? data.picture.data.url : "",
+          avatar: picture ? picture : "",
           facebookid: data.id,
           method: "facebook",
           registrationStep: 2,
@@ -267,6 +269,76 @@ module.exports = {
           },
         ],
       });
+    }
+  },
+  GoogleMobileAuth: async (req, res) => {
+    const user = await User.findOne({ googleId: req.query.googleid }).lean();
+
+    if (user) {
+      console.log("current user is ", user);
+      const payload = {
+        user: {
+          id: user._id,
+        },
+      };
+      jwt.sign(payload, config.get("jwtSecret"), null, (error, token) => {
+        if (error) throw error;
+        res.json({
+          ...user,
+          token,
+        });
+      });
+    } else {
+      var userData = {
+        email: req.query.email,
+        // lastName: req.query.,
+        firstName: req.query.displayName,
+        avatar: req.query.picture,
+        googleId: req.query.googleid,
+        method: "google",
+        // token: accessToken,
+      };
+
+      let userToSave = new User(userData);
+
+      try {
+        let newProduct = await userToSave.save();
+        const payload = {
+          user: {
+            id: newProduct._id,
+          },
+        };
+        jwt.sign(payload, config.get("jwtSecret"), null, (error, token) => {
+          if (error) throw error;
+          res.json({
+            ...newProduct,
+            token,
+          });
+        });
+
+        // res.json({
+
+        // })
+      } catch (error) {
+        console.log(error);
+        res.status(400).json({
+          errors: [
+            {
+              msg: "Error with google auth. please try again later",
+            },
+          ],
+        });
+      }
+      // userToSave
+      //   .save()
+      //   .then((res) => {
+      //     console.log("user created", res);
+      //     // done(null, res);
+
+      //   })
+      //   .catch((e) => {
+      //     console.log(e);
+      //   });
     }
   },
   LocalAuthController: async (req, res) => {
