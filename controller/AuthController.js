@@ -101,7 +101,12 @@ module.exports = {
     jwt.sign(payload, config.get("jwtSecret"), null, (error, token) => {
       if (error) throw error;
       console.log("hit here on line 38");
-      let redirect = `http://localhost:3000/s-catch?signup-method=google&ctb-rel=${googletoken}&j=${token}&status=${req.user.regComplete}`;
+
+      let redirect =
+        process.env.NODE_ENV !== "production"
+          ? `http://localhost:3000/s-catch?signup-method=google&ctb-rel=${googletoken}&j=${token}&status=${req.user.regComplete}`
+          : `https://mysterious-citadel-13326.herokuapp.com/s-catch?signup-method=google&ctb-rel=${googletoken}&j=${token}&status=${req.user.regComplete}`;
+
       console.log(redirect);
       res.redirect(redirect);
     });
@@ -109,7 +114,10 @@ module.exports = {
   FacebookOAuthController: async (req, res) => {
     const stringifiedParams = queryString.stringify({
       client_id: keys.facebook.clientID,
-      redirect_uri: "http://localhost:2900/api/auth/facebook/redirect",
+      redirect_uri:
+        process.env.NODE_ENV == "production"
+          ? "https://mysterious-citadel-13326.herokuapp.com/api/auth/facebook/redirect"
+          : "http://localhost:2900/api/auth/facebook/redirect",
       scope: ["email"].join(","), // comma seperated string
       response_type: "code",
       auth_type: "rerequest",
@@ -151,7 +159,11 @@ module.exports = {
         jwt.sign(payload, config.get("jwtSecret"), null, (error, token) => {
           if (error) throw error;
           console.log("hit here on line 38");
-          let redirect = `http://localhost:3000/s-catch?signup-method=facebook&ctb-rel=${user.facebookid}&j=${token}&status=${user.regComplete}`;
+          let redirect =
+            process.env.NODE_ENV !== "production"
+              ? `http://localhost:3000/s-catch?signup-method=facebook&ctb-rel=${user.facebookid}&j=${token}&status=${user.regComplete}`
+              : `https://mysterious-citadel-13326.herokuapp.com/s-catch?signup-method=facebook&ctb-rel=${user.facebookid}&j=${token}&status=${user.regComplete}`;
+
           console.log(redirect);
           res.redirect(redirect);
         });
@@ -171,7 +183,12 @@ module.exports = {
           console.log(savedValue, savedValue._id);
         } catch (error) {
           console.log(error);
-          let redirect = `http://localhost:3000/register?facebook-auth-status=fail&status=could-not-create-user`;
+          let redirect =
+            process.env.NODE_ENV !== "production"
+              ? `http://localhost:3000/register?facebook-auth-status=fail&status=could-not-create-user`
+              : `https://mysterious-citadel-13326.herokuapp.com/register?facebook-auth-status=fail&status=could-not-create-user`;
+
+          // let redirect = `http://localhost:3000/register?facebook-auth-status=fail&status=could-not-create-user`;
           res.redirect(redirect);
         }
         const payload = {
@@ -182,7 +199,12 @@ module.exports = {
         jwt.sign(payload, config.get("jwtSecret"), null, (error, token) => {
           if (error) throw error;
           console.log("hit here on line 38");
-          let redirect = `http://localhost:3000/s-catch?signup-method=facebook&ctb-rel=${data.id}&j=${token}`;
+
+          process.env.NODE_ENV !== "production"
+            ? `http://localhost:3000/s-catch?signup-method=facebook&ctb-rel=${data.id}&j=${token}`
+            : `https://mysterious-citadel-13326.herokuapp.com/s-catch?signup-method=facebook&ctb-rel=${data.id}&j=${token}`;
+
+          // let redirect = `http://localhost:3000/s-catch?signup-method=facebook&ctb-rel=${data.id}&j=${token}`;
           console.log(redirect);
           res.redirect(redirect);
         });
