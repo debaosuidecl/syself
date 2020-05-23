@@ -56,7 +56,7 @@ function Auth(props) {
       <div
         className={
           registrationStatus == 1
-            ? [classes.LeftGraphicCont, classes.desktopOnly].join(" ")
+            ? [classes.LeftGraphicCont].join(" ")
             : registrationStatus == 2
             ? classes.LeftGraphicCont
             : classes.LeftGraphicCont
@@ -66,15 +66,7 @@ function Auth(props) {
           <AuthFormSignIn />
         </div>
       </div>
-      <div
-        className={
-          registrationStatus == 1
-            ? classes.RightCont
-            : registrationStatus == 2
-            ? [classes.RightCont, classes.desktopOnly].join(" ")
-            : [classes.RightCont, classes.desktopOnly].join(" ")
-        }
-      >
+      <div className={[classes.RightCont, classes.desktopOnly].join(" ")}>
         <div className={classes.UpFade3}>
           <img src={SignInImage} style={{ width: "80%" }} />
         </div>

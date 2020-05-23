@@ -22,7 +22,6 @@
 .Form {
   text-align: left;
   padding: 20px;
-  box-shadow: 1px 0px 5px #eee;
   /* min-width: 300px; */
   max-width: 400px;
   margin: 0 auto;
@@ -63,4 +62,10 @@
 
 i {
   color: #141b4d;
+}
+
+@media (min-width: 500px) {
+  .Form {
+    box-shadow: 1px 0px 5px #eee;
+  }
 }
