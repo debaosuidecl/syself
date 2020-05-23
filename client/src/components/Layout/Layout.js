@@ -5,10 +5,13 @@ import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import { AuthContext } from "../../context/AuthContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { withRouter } from "react-router";
+import Toggler from "../Toggler/Toggler";
+import DropDown from "../DropDown/DropDown";
 function Layout(props) {
-  function returnVoid() {
-    return "";
-  }
+  // function returnVoid() {
+  //   return "";
+  // }
+
   const {
     authFunc,
     loading,
@@ -18,10 +21,40 @@ function Layout(props) {
     token,
     regComplete,
   } = useContext(AuthContext);
-  // USE EFFECT TO AUTHENTICATE BEFORE  A
+
+  // USE STATE
+
+  let [isToggled, setToggler] = useState(false);
+
+  const Links = [
+    {
+      name: "Register",
+      link: "/register",
+      show: !token,
+    },
+
+    {
+      name: "Home",
+      link: "/",
+      show: true,
+    },
+    {
+      name: "Dashboard",
+      link: "/dashboard",
+      show: token,
+    },
+    {
+      name: "Logout",
+      link: "/logout",
+      show: !token,
+    },
+  ];
 
   return (
     <>
+      <div className={classes.DropDown}>
+        <DropDown routes={Links} isToggled={isToggled} />
+      </div>
       <div className={classes.ErrorCont}>
         {errors &&
           errors.map((error) => {
@@ -36,7 +69,19 @@ function Layout(props) {
           >
             <img src={Logo} height={80} />
           </div>
-          <div className={classes.Routes}>
+          <div
+            className={classes.MobileOnly}
+            style={{
+              position: "relative",
+              zIndex: "3000",
+            }}
+          >
+            <Toggler
+              isToggled={isToggled}
+              clicked={() => setToggler(!isToggled)}
+            />
+          </div>
+          <div className={[classes.Routes, classes.DesktopOnly].join(" ")}>
             {token ? (
               <>
                 {regComplete ? (
