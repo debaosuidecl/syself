@@ -13,7 +13,7 @@ function Home() {
           textAlign: "center",
         }}
       >
-        HOME LAYOUT TO BE DESIGNED
+        HOME
       </h1>
     </Layout>
   );

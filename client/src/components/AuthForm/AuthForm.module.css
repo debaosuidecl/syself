@@ -1,67 +1,71 @@
-.AuthForm{
-    text-align: center;
-    /* background: green; */
+.AuthForm {
+  text-align: center;
+  /* background: green; */
 }
 
-.AuthForm h3{
-    font-size: 36px;
-    color: #141b4d;
-    font-weight: 500;
-    padding: 0px;
-    margin: 0px;
-    letter-spacing: -.1rem;
+.AuthForm h3 {
+  font-size: 36px;
+  color: #141b4d;
+  font-weight: 500;
+  padding: 0px;
+  margin: 0px;
+  letter-spacing: -0.1rem;
 }
 
-.smallWith{
-    font-size: small;
-    margin: 20px 0px;
-  
-    padding: 0px;
+.smallWith {
+  font-size: small;
+  margin: 20px 0px;
+
+  padding: 0px;
 }
 
-.Form{
-    text-align: left;
-    padding: 20px;
-    box-shadow: 1px 0px 5px #eee;
-    /* min-width: 300px; */
-    max-width: 400px;
-    margin: 0 auto;
+.Form {
+  text-align: left;
+  padding: 20px;
+  /* min-width: 300px; */
+  max-width: 400px;
+  margin: 0 auto;
 }
-.privacyPolicy{
-    margin: 20px auto;
+.privacyPolicy {
+  margin: 20px auto;
 }
-.privacyPolicy b{
-    font-weight: 300;
-}
-
-.GoogleFacebookCont{
-    display: flex;
-    justify-content: space-around;
-
+.privacyPolicy b {
+  font-weight: 300;
 }
 
-.preForm{
-    text-align: center;
+.GoogleFacebookCont {
+  display: flex;
+  justify-content: space-around;
 }
-.preForm p{
-    margin: 0px;
-    padding: 0px;
+
+.preForm {
+  text-align: center;
 }
-.preForm img{
-    margin: 0px;
+.preForm p {
+  margin: 0px;
+  padding: 0px;
 }
-.Google, .Facebook{
-    margin: 50px 0px;
-    cursor: pointer;
+.preForm img {
+  margin: 0px;
 }
-.Google img:hover{
-    /* box-shadow: 1px 0px 14px #bbb; */
-    background: transparent;
-    /* margin: 0px;
+.Google,
+.Facebook {
+  margin: 50px 0px;
+  cursor: pointer;
+}
+.Google img:hover {
+  /* box-shadow: 1px 0px 14px #bbb; */
+  background: transparent;
+  /* margin: 0px;
     padding:0px; */
 }
 
-i{
-    color: #141b4d;
+i {
+  color: #141b4d;
+}
 
+@media (min-width: 500px) {
+  .Form {
+    box-shadow: 1px 0px 5px #eee;
+  }
 }

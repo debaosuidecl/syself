@@ -67,7 +67,7 @@ function Layout(props) {
             className={classes.Logo}
             onClick={() => (window.location.href = "/")}
           >
-            <img src={Logo} height={80} />
+            <img src={Logo} height={55} />
           </div>
           <div
             className={classes.MobileOnly}
