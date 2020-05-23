@@ -113,7 +113,7 @@ module.exports = {
   },
   FacebookOAuthController: async (req, res) => {
     const stringifiedParams = queryString.stringify({
-      client_id: keys.facebook.clientID,
+      client_id: facebookClientID,
       redirect_uri:
         process.env.NODE_ENV == "production"
           ? "https://mysterious-citadel-13326.herokuapp.com/api/auth/facebook/redirect"
