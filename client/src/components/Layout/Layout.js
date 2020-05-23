@@ -46,7 +46,7 @@ function Layout(props) {
     {
       name: "Logout",
       link: "/logout",
-      show: !token,
+      show: token,
     },
   ];
 

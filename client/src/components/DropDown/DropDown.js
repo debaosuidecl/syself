@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "../Layout/Layout.module.css";
-function DropDown({ routes, isToggled, token }) {
+function DropDown({ routes, isToggled }) {
   return (
     <ul
       className={classes.DropDownBody}
@@ -13,7 +13,7 @@ function DropDown({ routes, isToggled, token }) {
     >
       {routes.map((l) => {
         {
-          if (token)
+          if (l.show)
             return (
               <li>
                 <a href={l.link}>{l.name}</a>
