@@ -53,7 +53,7 @@ function Layout(props) {
   return (
     <>
       <div className={classes.DropDown}>
-        <DropDown routes={Links} isToggled={isToggled} />
+        <DropDown routes={Links} isToggled={isToggled} token={token} />
       </div>
       <div className={classes.ErrorCont}>
         {errors &&
