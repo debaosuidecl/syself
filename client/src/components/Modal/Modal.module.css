@@ -1,13 +1,23 @@
 .Modal {
-  position: fixed;
+  /* position: fixed; */
   z-index: 1500;
   background-color: white;
-  width: 70%;
-  border: 1px solid #ccc;
-  box-shadow: 0px 3px 10px #444;
+  position: fixed;
+  z-index: 2000;
+  /* width: 80px; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 70%; */
+  /* border: 1px solid #ccc; */
+  box-shadow: 0px 3px 10px #222;
   padding: 16px;
-  left: 15%;
-  top: 30%;
+  /* left: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* top: 50%; */
+  /* transform: translateX(-50%); */
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
@@ -15,6 +25,6 @@
 @media (min-width: 960px) {
   .Modal {
     width: 700px;
-    left: calc(50% - 350px);
+    /* text-align: center; */
   }
 }

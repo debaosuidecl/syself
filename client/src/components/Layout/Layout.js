@@ -1,6 +1,11 @@
 import React, { Component, useContext, useEffect, useState } from "react";
 import classes from "./Layout.module.css";
 import Logo from "../../images/logo.png";
+import Footerlogo from "../../images/footerloud insighwhite.png";
+import Fb from "../../images/fbfooterlogo.png";
+import Twitter from "../../images/twitterfooterlogo.png";
+import Instagram from "../../images/IGfooterlogo.png";
+import Gmail from "../../images/gmailfooterlogo.png";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import { AuthContext } from "../../context/AuthContext";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
@@ -13,11 +18,8 @@ function Layout(props) {
   // }
 
   const {
-    authFunc,
-    loading,
     errors,
-    ipSearch,
-    loadedOnce,
+
     token,
     regComplete,
   } = useContext(AuthContext);
@@ -95,13 +97,52 @@ function Layout(props) {
               </>
             ) : null}
             {!token ? (
-              <li>
-                <a href="/register">Register</a>
-              </li>
+              <>
+                <li>
+                  <a href="/register">Register</a>
+                </li>
+
+                <li>
+                  <a href="/sign-in">Sign in</a>
+                </li>
+              </>
             ) : null}
           </div>
         </div>
-        <div>{props.children}</div>
+        <div className={classes.Children}>{props.children}</div>
+
+        {props.showFooter ? (
+          <footer className={classes.Footer}>
+            <div className={classes.FooterTop}>
+              <div className="">
+                <p>Top categories</p>
+                <p>Top users</p>
+                <p>Take survey</p>
+              </div>
+              <div className="">
+                <p>Support</p>
+                <p>FAQ</p>
+              </div>
+              <div className="">
+                <p>Terms & Conditions</p>
+                <p>Cookie policy</p>
+              </div>
+              <div className="">
+                <p>Why Loudinsight</p>
+                <p>How it works</p>
+              </div>
+            </div>
+
+            <div className={classes.FooterBottom}>
+              <img src={Footerlogo} alt="footerlogo" height="60px" />
+              <hr />
+              <img src={Twitter} alt="" height="50px" />
+              <img src={Instagram} alt="" height="50px" />
+              <img src={Fb} alt="" height="50px" />
+              <img src={Gmail} alt="" height="50px" />
+            </div>
+          </footer>
+        ) : null}
       </div>
     </>
   );

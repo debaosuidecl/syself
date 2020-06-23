@@ -54,11 +54,16 @@
   max-width: 600px;
 }
 .WelcomeCont {
+  /* background: green; */
   text-align: center;
+  /* max-width: 300px; */
   color: #141b4d;
 }
+
+/* .WelcomeCont  */
+
 .WelcomeCont h1 {
-  font-weight: 1000;
+  font-weight: 500;
 }
 .WelcomeCont span {
   font-weight: 900;

@@ -61,7 +61,7 @@ function App(props) {
         <Route path="/s-catch" exact component={SocialFetch} />
         <Route path="/register-user-type" exact component={SelectUserType} />
         <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/" exact component={Home} />
+        {/* <Route path="/" exact component={Home} /> */}
         <Route path="/logout" exact component={Logout} />
 
         <Route render={() => <ErroPage />} />

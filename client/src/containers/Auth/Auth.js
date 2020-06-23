@@ -107,12 +107,14 @@ function Auth(props) {
       {registrationStatus !== 2 ? null : (
         <Modal show={showModal} removeModal={() => showModalhandler(false)}>
           <div className={classes.WelcomeCont}>
-            <img src={ModalImage} height="140" />
+            <img src={ModalImage} height="70" />
             <h1>
-              Welcome to <span style={{ fontWeight: 900 }}>syself</span>
+              Welcome to <span style={{ fontWeight: 900 }}>Loudinsight</span>
             </h1>
-            <h3>{firstName || email}</h3>
-            <p>
+            <h3 style={{ margin: 15, maxWidth: "300px" }}>
+              {firstName || email}
+            </h3>
+            <p style={{ margin: 15 }}>
               You are almost there, create your <strong>syself</strong> profile
             </p>
             <SyselfButton onClick={() => showModalhandler(false)}>

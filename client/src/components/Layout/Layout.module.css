@@ -1,3 +1,8 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 .Layout {
   /* height: 0px; */
   width: 100%;
@@ -5,6 +10,9 @@
   background: #141b4d;
   display: flex;
   align-items: center;
+  position: fixed;
+  z-index: 1000;
+  /* padding-bottom: 40px; */
   justify-content: space-between;
 }
 
@@ -100,7 +108,38 @@
   font-weight: 100;
   font-family: inherit;
 }
+.Footer {
+  min-height: 400px;
+  background: #444;
+}
+.FooterTop {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  padding: 14px;
+  justify-content: space-between;
+  padding-top: 60px;
+  font-size: 19px;
+  max-width: 1200px;
+}
+.FooterTop div {
+  margin-bottom: 20px;
+}
+.FooterTop p {
+  padding: 2px;
+  color: #888;
+}
 
+.FooterBottom {
+  text-align: center;
+  padding: 14px;
+  max-width: 800px;
+  margin: auto;
+}
+hr {
+  border: 1px solid #888;
+  margin-bottom: 18px;
+}
 @media (min-width: 500px) {
   .DesktopOnly {
     display: flex;
@@ -111,4 +150,9 @@
   .Logo {
     justify-content: flex-start;
   }
+}
+
+.Children {
+  padding-top: 55px;
+  padding-bottom: 55px;
 }
