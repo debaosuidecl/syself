@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import InputWithShade from "../InputWithShade/InputWithShade";
@@ -49,36 +50,33 @@ function AuthForm3() {
       >
         <div className={classes.preForm}>
           <h3>Join us</h3>
-          <p className={classes.smallWith}>as</p>
+          <p className={classes.smallWith}>as a</p>
 
-          {[
-            "A Freelancer",
-            "A Jobseeker",
-            "A Project owner",
-            "A Recruiter",
-          ].map((user, i) => {
-            return (
-              <div
-                className={
-                  user === usertype
-                    ? classes.ButtonSelected
-                    : classes.ButtonCont
-                }
-              >
-                <SyselfButton
-                  key={i}
-                  isfullwidth
-                  onClick={(e) => {
-                    console.log(e.target.innerText);
-                    // console.log(user, usertype)
-                    setUserType(e.target.innerText);
-                  }}
+          {["Freelancer", "Jobseeker", "Project owner", "Recruiter"].map(
+            (user, i) => {
+              return (
+                <div
+                  className={
+                    user === usertype
+                      ? classes.ButtonSelected
+                      : classes.ButtonCont
+                  }
                 >
-                  {user}
-                </SyselfButton>
-              </div>
-            );
-          })}
+                  <SyselfButton
+                    key={i}
+                    isfullwidth
+                    onClick={(e) => {
+                      console.log(e.target.innerText);
+                      // console.log(user, usertype)
+                      setUserType(e.target.innerText);
+                    }}
+                  >
+                    {user}
+                  </SyselfButton>
+                </div>
+              );
+            }
+          )}
         </div>
       </form>
     </div>

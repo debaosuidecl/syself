@@ -78,6 +78,10 @@ router.post(
       .not()
       .isEmpty()
       .isLength({ min: 2 }),
+    check("usertype", "User type is required")
+      .not()
+      .isEmpty()
+      .isLength({ min: 2 }),
     check("phoneNumber", "The phone number is required")
       .not()
       .isEmpty()

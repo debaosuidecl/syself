@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { createContext, useState, useEffect } from "react";
 
 import axios from "axios";
@@ -90,8 +91,6 @@ function AuthContextProvider(props) {
           setAuthenticationLoading(false);
 
           if (response.data == null) {
-            // setErrors([...errors, "invalid token"])
-            // localStorage.removeItem("j")
             reject("returned as null");
             setAuthenticationLoading(false);
             return console.log(errors);
@@ -100,13 +99,11 @@ function AuthContextProvider(props) {
           localStorage.setItem("j", token);
           setToken(token);
           setAuthenticationLoading(false);
-          // setRegistrationStatus(2);
           resolve({ token, regComplete: response.data.regComplete });
         })
         .catch((error) => {
           console.log(error.response.data.errors);
           setAuthenticationLoading(false);
-
           if (error.response && error.response.data.errors) {
             setErrors(error.response.data.errors);
             setErrorToEmptyArray();
@@ -145,14 +142,13 @@ function AuthContextProvider(props) {
               phoneNumber,
               email,
               location,
+              usertype: usertype,
             },
             config
           )
           .then((response) => {
             // console.log(response);
             if (response.data == null) {
-              // setErrors([...errors, "invalid token"])
-              // localStorage.removeItem("j")
               setAuthenticationLoading(false);
               rej(errors);
               return console.log(errors);
@@ -160,19 +156,13 @@ function AuthContextProvider(props) {
             const { success } = response.data;
 
             res(success);
-
-            // setToken(token);
-            // localStorage.setItem("j", token);
             setAuthenticationLoading(false);
-            // setRegistrationStatus(2);
           })
           .catch((error) => {
             console.log(error.response);
-            // console.log(error.response.data.errors);
             if (error.response) {
               setErrors(error.response.data.errors);
               setErrorToEmptyArray();
-              // console.log(error.response.data);
               rej(error.response.data);
               setAuthenticationLoading(false);
             }
@@ -189,7 +179,6 @@ function AuthContextProvider(props) {
     } else {
       setLoadingState(true);
     }
-    // console.log("hit here");
     const token = localStorage.getItem("j");
     if (!token) {
       console.log("not seen token");
@@ -223,6 +212,7 @@ function AuthContextProvider(props) {
             avatar,
             registrationStep,
             regComplete,
+            usertype,
           } = response.data;
           setFirstName(firstName);
           setLastName(lastName);
@@ -230,13 +220,13 @@ function AuthContextProvider(props) {
           setEmail(email);
           setToken(token);
           setId(_id);
+          setUserType(usertype);
           setRegComplete(regComplete);
           setRegistrationStatus(registrationStep);
           setTimeout(() => {
             setLoadingState(false);
             setLoadedOnce(true);
           }, 2000);
-          // setRegistrationStatus(3);
         })
 
         .catch((error) => {

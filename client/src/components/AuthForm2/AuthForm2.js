@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import InputWithShade from "../InputWithShade/InputWithShade";
@@ -100,7 +101,7 @@ function AuthForm2() {
   }, [userName]);
   //PHONE NUMBER MONITOR
   useEffect(() => {
-    if (/^[0-9]{11}$/.test(phoneNumber)) {
+    if (/^[0-9]{10}$/.test(phoneNumber)) {
       // return false;
       setPhoneNumberIsValid(true);
     } else {

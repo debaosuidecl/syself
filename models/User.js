@@ -1,5 +1,5 @@
 // THIS IS THE USER SCHEMA FILE
-
+//@ts-nocheck
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
@@ -35,13 +35,19 @@ const UserSchema = new mongoose.Schema({
   method: {
     type: String,
   },
-
+  dashboardBuildStep: {
+    type: Number,
+    default: 1,
+  },
   avatar: {
     type: String,
   },
   registrationStep: {
     type: Number,
     default: 2,
+  },
+  usertype: {
+    type: String,
   },
   facebookid: {
     type: String,

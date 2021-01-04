@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useState, useEffect, useContext } from "react";
 import Layout from "../../components/Layout/Layout";
 import { Link } from "react-router-dom";
@@ -30,7 +31,7 @@ function Home() {
         }
         return index + 1;
       });
-    }, 9000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
   const { regComplete, email } = useContext(AuthContext);
@@ -135,7 +136,14 @@ function Home() {
                 </p>
               </div>
               <div className={classes.ButtonCont}>
-                <SyselfButton>Join</SyselfButton>
+                <SyselfButton
+                  onClick={() => {
+                    localStorage.setItem("preferred-user-type", "Freelancer");
+                    window.location.href = "/register";
+                  }}
+                >
+                  Join
+                </SyselfButton>
               </div>
             </div>
           </div>
@@ -154,12 +162,19 @@ function Home() {
                   <span className={classes.userType}>Jobseeker</span>
                 </h1>
                 <p>
-                  Join us as a freelancer and build great things with our sea of
+                  Join us as a Jobseeker and build great things with our sea of
                   project owners waiting to have access to your talent.
                 </p>
               </div>
               <div className={classes.ButtonCont}>
-                <SyselfButton>Join</SyselfButton>
+                <SyselfButton
+                  onClick={() => {
+                    localStorage.setItem("preferred-user-type", "Jobseeker");
+                    window.location.href = "/register";
+                  }}
+                >
+                  Join
+                </SyselfButton>
               </div>
             </div>
             <div className={classes.Left}>
@@ -180,12 +195,19 @@ function Home() {
                   <span className={classes.userType}>Recruiter</span>
                 </h1>
                 <p>
-                  Join us as a freelancer and build great things with our sea of
+                  Join us as a recruiter and build great things with our sea of
                   project owners waiting to have access to your talent.
                 </p>
               </div>
               <div className={classes.ButtonCont}>
-                <SyselfButton>Join</SyselfButton>
+                <SyselfButton
+                  onClick={() => {
+                    localStorage.setItem("preferred-user-type", "Recruiter");
+                    window.location.href = "/register";
+                  }}
+                >
+                  Join
+                </SyselfButton>
               </div>
             </div>
           </div>
@@ -206,12 +228,22 @@ function Home() {
                   <span className={classes.userType}>Project Owner</span>
                 </h1>
                 <p>
-                  Join us as a freelancer and build great things with our sea of
-                  project owners waiting to have access to your talent.
+                  Join us as a project owner and build great things with our sea
+                  of project owners waiting to have access to your talent.
                 </p>
               </div>
               <div className={classes.ButtonCont}>
-                <SyselfButton>Join</SyselfButton>
+                <SyselfButton
+                  onClick={() => {
+                    localStorage.setItem(
+                      "preferred-user-type",
+                      "Project Owner"
+                    );
+                    window.location.href = "/register";
+                  }}
+                >
+                  Join
+                </SyselfButton>
               </div>
             </div>
             <div className={classes.Left}>

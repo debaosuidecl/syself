@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useContext, useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import classes from "./Auth.module.css";

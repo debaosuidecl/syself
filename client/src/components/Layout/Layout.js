@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component, useContext, useEffect, useState } from "react";
 import classes from "./Layout.module.css";
 import Logo from "../../images/logo.png";
